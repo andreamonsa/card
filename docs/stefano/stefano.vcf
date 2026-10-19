@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Balboni;Stefano;;;
+FN:Stefano Balboni
+ORG:Volare
+TITLE:Partner
+TEL;TYPE=CELL,VOICE:+393337440543
+EMAIL;TYPE=INTERNET,WORK:s@volareresearch.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/stefano-balboni-86161a233/
+item1.URL:https://www.linkedin.com/in/stefano-balboni-86161a233/
+item1.X-ABLabel:LinkedIn
+END:VCARD

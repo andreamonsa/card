@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FAFAF8">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
+<title>{{fullName}} · {{company}}</title>
+<meta property="og:title" content="{{fullName}} · {{company}}">
+<meta property="og:description" content="{{title}}, {{company}}">
+{{ogImage}}
+<link rel="icon" href="../{{logo}}">
+<link rel="apple-touch-icon" href="../{{logo}}">
+<style>
+  :root {
+    color-scheme: light only;
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --ink: #161615;
+    --ink-2: #5E5D59;
+    --ink-3: #8D8C87;
+    --line: #DEDCD6;
+    --accent: {{accent}};
+    --serif: "Times New Roman", Times, serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Card near the middle, contacts and button pushed towards the bottom where the thumb rests. */
+  main {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: calc(24px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left));
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: min(100dvh, 900px);
+  }
+
+  .card {
+    aspect-ratio: 85 / 55;
+    background: var(--card);
+    border-radius: 8px;
+    padding: 7% 7.5%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05), 0 14px 32px -14px rgba(0,0,0,.26);
+    animation: rise .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .card .logo { height: 34%; width: auto; align-self: flex-start; margin: -3% 0 0 -2%; }
+  .card .bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+  .card .who { flex: 1 1 auto; min-width: 0; }
+  .card .rule { width: 22px; height: 2px; background: var(--accent); margin-bottom: 10px; }
+  .card .name, .card .role { white-space: nowrap; overflow: hidden; }
+  .card .name { font-size: clamp(19px, 5.8vw, 23px); font-weight: 400; line-height: 1.15; }
+  .card .role { font-size: clamp(12.5px, 3.7vw, 14.5px); color: var(--ink-2); margin-top: 3px; }
+  .card .lines { flex: 0 1 auto; max-width: 56%; min-width: 0; overflow: hidden; text-align: right; font-size: clamp(11px, 3.2vw, 13px); color: var(--ink-2); line-height: 1.5; }
+  .card .lines p { white-space: nowrap; }
+  /* Fallback when a long name/email can't sit side by side. */
+  .card .bottom.stacked { flex-direction: column; align-items: stretch; gap: 8px; }
+  .card .bottom.stacked .lines { max-width: none; text-align: left; }
+
+  /* Spare height is split 3:2 above the card and above the contacts. */
+  main::before { content: ""; flex: 3 0 0; }
+  .actions { flex: 2 0 auto; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 44px; animation: fade .6s .25s ease both; }
+  .contacts { list-style: none; border-top: 0.5px solid var(--line); }
+  .contacts a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 58px;
+    padding: 0 2px;
+    border-bottom: 0.5px solid var(--line);
+    color: inherit;
+    text-decoration: none;
+  }
+  .contacts a:active { background: rgba(0,0,0,.03); }
+  .contacts .label { font-size: 12.5px; letter-spacing: .1em; color: var(--ink-3); width: 82px; flex: none; }
+  .contacts .value { font-size: 17px; flex: 1; min-width: 0; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .contacts .arrow { width: 14px; height: 14px; flex: none; color: var(--ink-3); }
+
+  .save {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 56px;
+    border-radius: 4px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: transform .12s ease;
+  }
+  .save:active { transform: scale(.985); background: #2A2A28; }
+  .save svg { width: 20px; height: 20px; }
+
+  footer { padding-top: 28px; text-align: center; font-size: 11.5px; letter-spacing: .14em; color: var(--ink-3); }
+
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .card, .actions { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="card" aria-label="Business card">
+    <img class="logo" src="../{{logo}}" alt="{{company}}">
+    <div class="bottom">
+      <div class="who">
+        <div class="rule" aria-hidden="true"></div>
+        <h1 class="name" data-fit="16">{{fullName}}</h1>
+        <p class="role" data-fit="11">{{title}}</p>
+      </div>
+      <div class="lines" data-fit="10">
+        <p>{{phoneDisplay}}</p>
+        <p>{{email}}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <ul class="contacts">
+      <li><a href="mailto:{{email}}"><span class="label">EMAIL</span><span class="value" data-fit="12">{{email}}</span>{{arrow}}</a></li>
+      <li><a href="tel:{{phoneDial}}"><span class="label">PHONE</span><span class="value">{{phoneDisplay}}</span>{{arrow}}</a></li>
+      <li><a href="{{linkedin}}" target="_blank" rel="noopener"><span class="label">LINKEDIN</span><span class="value">{{linkedinHandle}}</span>{{arrow}}</a></li>
+    </ul>
+
+    <a class="save" href="{{vcfFile}}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M19 8v6M16 11h6"/></svg>
+      Save contact
+    </a>
+  </div>
+
+  <footer>{{companyUpper}}</footer>
+</main>
+<script>
+  // Shrink long names/emails until they fit on one line, like a printed card would.
+  // If the card still can't hold them side by side, stack them instead.
+  function shrink(els) {
+    var overflow = false;
+    els.forEach(function (el) {
+      el.style.fontSize = "";
+      var size = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit);
+      while (el.scrollWidth > el.clientWidth && size > min) {
+        size -= 0.5;
+        el.style.fontSize = size + "px";
+      }
+      if (el.scrollWidth > el.clientWidth) overflow = true;
+    });
+    return overflow;
+  }
+  function fit() {
+    var bottom = document.querySelector(".card .bottom");
+    var onCard = Array.prototype.slice.call(bottom.querySelectorAll("[data-fit]"));
+    bottom.classList.remove("stacked");
+    if (shrink(onCard)) {
+      bottom.classList.add("stacked");
+      shrink(onCard);
+    }
+    shrink(Array.prototype.slice.call(document.querySelectorAll(".contacts [data-fit]")));
+  }
+  fit();
+  window.addEventListener("resize", fit);
+</script>
+</body>
+</html>

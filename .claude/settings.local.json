@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__visualize__show_widget",
+      "Bash(mkdir -p assets people)",
+      "Bash(cp /private/tmp/claude-501/-Users-andreamonsalina-claude-card/13692079-7004-493e-aa15-ebe35f0d9390/images/1.png assets/logo-original.png)",
+      "Bash(sips -c 128 200 --cropOffset 24 0 assets/logo-original.png --out assets/logo.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight assets/logo.png)",
+      "Bash(python3 -I /private/tmp/claude-501/-Users-andreamonsalina-claude-card/13692079-7004-493e-aa15-ebe35f0d9390/scratchpad/color.py /Users/andreamonsalina/claude/card/assets/logo-original.png)",
+      "Bash(python3 build.py)",
+      "Bash(curl -sI http://localhost:8080/jane-doe/jane-doe.vcf)",
+      "Bash(sips -s format jpeg -s formatOptions 70 assets/logo.png --out /private/tmp/claude-501/-Users-andreamonsalina-claude-card/13692079-7004-493e-aa15-ebe35f0d9390/scratchpad/logo.jpg)"
+    ]
+  }
+}
