@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Monsalina;Andrea;;;
+FN:Andrea Monsalina
+ORG:Volare Research
+TITLE:Investment Analyst
+TEL;TYPE=CELL,VOICE:+393921476656
+EMAIL;TYPE=INTERNET,WORK:andrea.monsalina@studbocconi.it
+X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/andrea-monsalina/
+item1.URL:https://linkedin.com/in/andrea-monsalina/
+item1.X-ABLabel:LinkedIn
+END:VCARD
